@@ -1,0 +1,63 @@
+<head>
+  <title>SpamBot</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>The spaminator!</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                {{> sms}}
+            </div>
+        </div>
+    </div>
+</body>
+
+<template name="sms">
+    <form id="spamForm">
+        <div class="row">
+            <div class="col-md-4 col-xs-12">
+                <div class="form-group">
+                    <label for="to">Number to be hammered</label>
+                    <input type="number" class="form-control" id="to" placeholder="+6112xxxxxx">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-xs-12">
+                <div class="form-group">
+                    <label for="message">The message</label>
+                    <textarea class="form-control" id="message" placeholder="... let's do this" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-xs-12">
+                <div class="form-group">
+                    <label for="times">How many messages to send</label>
+                    <select id="times" class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-xs-12">
+                <button class="btn btn-primary" type="submit">BOOM!</button>
+            </div>
+        </div>
+    </form>
+</template>
