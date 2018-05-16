@@ -18,11 +18,11 @@ const authHeaders = {
 
 Meteor.methods({
     "authenticate": () => {
-        HTTP.call("POST", telstraAPIEndpoint + "/oauth/token", { headers: authHeaders }, (err, res) => {
+        HTTP.call("POST", telstraAPIEndpoint + "/oauth/token", { params: authHeaders }, (err, res) => {
             if(!err) {
                 Session.set('token', res.data);
             } else {
-                Session.set('err', true);
+                Session.set('token', false);
             }
         });
 
@@ -35,7 +35,7 @@ Meteor.methods({
                 to: phoneNumber,
                 body: message
             };
-            HTTP.call("POST", telstraAPIEndpoint + "/messages/sms", {data: details, headers: {AccessToken: token}})
+            HTTP.call("POST", telstraAPIEndpoint + "/messages/sms", { data: details , headers: { AccessToken: token } });
         }
     }
 });

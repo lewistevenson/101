@@ -4,12 +4,13 @@ import './main.html';
 
 Template.sms.events({
     'submit #spamForm'(event, template) {
-      const phoneNumber = event.target.to.value;
-      const message = event.target.message.value;
-      const times = event.target.times.value;
+        event.preventDefault();
+        event.stopPropagation();
 
-      alert(phoneNumber + " - " + message + " x " + times);
+        const phoneNumber = event.target.to.value;
+        const message = event.target.message.value;
+        const times = event.target.times.value;
 
-      Meteor.call("sendSMS", phoneNumber, message, times);
+        //Meteor.call("sendSMS", phoneNumber, message, times);
     }
 });
